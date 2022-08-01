@@ -24,7 +24,6 @@ function calculate() {
             amount2El.value = amount1El.value * rate;
             
         })
-
 }
 
 // event listeners
@@ -34,6 +33,16 @@ curr2Element.addEventListener('change', calculate);
 amount1El.addEventListener('change', calculate);
 amount2El.addEventListener('change', calculate);
 
-swap.addEventListener('click', calculate);
+// swap currensies
+swap.addEventListener('click', swapCurrensies);
+
+function swapCurrensies(){
+    let temp = curr1Element.value;
+    curr1Element.value = curr2Element.value;
+    curr2Element.value = temp;
+
+    calculate();
+}
+
 
 calculate();
